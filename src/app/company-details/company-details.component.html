@@ -1,0 +1,40 @@
+<!-- <mat-toolbar>
+    <span mat-dialog-title>Company Details</span>
+</mat-toolbar> -->
+<div mat-dialog-content>
+    <form (submit)="$event.preventDefault()" style="display: inline-grid;">
+        <mat-drawer-container class="example-container">
+            <!-- <mat-drawer mode="side" opened>Menu</mat-drawer> -->
+            <mat-drawer-content>
+                <mat-form-field class="row" appearance="fill" class="example-full-width">
+                    <mat-label>Company name</mat-label>
+                    <input matInput placeholder="Ex. abc">
+                </mat-form-field>
+                <mat-form-field appearance="fill" class="example-full-width">
+                    <mat-label>Company Formation Date</mat-label>
+                    <input type="date" matInput (cdkAutofill)="firstNameAutofilled = $event.isAutofilled">
+                </mat-form-field>
+                <mat-form-field appearance="fill" class="example-full-width">
+                    <mat-label>Company Type</mat-label>
+                    <mat-select>
+                        <mat-option value="Main">Main</mat-option>
+                        <mat-option value="Subsidiary">Subsidiary</mat-option>
+                        <mat-option>Clear</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Address 2</mat-label>
+                    <textarea matInput></textarea>
+                </mat-form-field>
+                <div style="display: flex;">
+                    <div style="padding-right: 15px;">
+                        <button mat-raised-button color="primary">Save</button>
+                    </div>
+                    <div>
+                        <button mat-raised-button>Cancle</button>
+                    </div>
+                </div>
+            </mat-drawer-content>
+        </mat-drawer-container>
+    </form>
+</div>
