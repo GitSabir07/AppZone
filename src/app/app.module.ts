@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CompanyDetailsComponent } from './company-details/company-details.component';
@@ -15,6 +14,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from "@angular/material/tabs";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +33,9 @@ import { MatTabsModule } from "@angular/material/tabs";
     MatButtonModule,
     MatIconModule,
     MatDividerModule,
-    MatTabsModule
+    MatTabsModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

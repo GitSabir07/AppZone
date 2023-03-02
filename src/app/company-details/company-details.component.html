@@ -2,32 +2,122 @@
     <span mat-dialog-title>Company Details</span>
 </mat-toolbar> -->
 <div mat-dialog-content>
-    <form (submit)="$event.preventDefault()" style="display: inline-grid;">
+    <form [formGroup]="compantDetailsFrom" (submit)="$event.preventDefault()" style="display: flex;" novalidate>
         <mat-drawer-container class="example-container">
             <!-- <mat-drawer mode="side" opened>Menu</mat-drawer> -->
             <mat-drawer-content>
-                <mat-form-field class="row" appearance="fill" class="example-full-width">
-                    <mat-label>Company name</mat-label>
-                    <input matInput placeholder="Ex. abc">
+                <h3>Company Details</h3>
+                <mat-form-field appearance="fill" class="example-full-width">
+                    <mat-label>Name</mat-label>
+                    <input matInput placeholder="Ex. abc" formControlName="name" required>
                 </mat-form-field>
                 <mat-form-field appearance="fill" class="example-full-width">
-                    <mat-label>Company Formation Date</mat-label>
-                    <input type="date" matInput (cdkAutofill)="firstNameAutofilled = $event.isAutofilled">
+                    <mat-label>Company Code</mat-label>
+                    <input type="number" matInput placeholder="Ex. 123" formControlName="code" required>
+                </mat-form-field>
+                <mat-form-field appearance="fill" class="example-full-width">
+                    <mat-label>Approved Auditor</mat-label>
+                    <mat-select formControlName="approvedAuditor">
+                        <mat-option>Choose type</mat-option>
+                        <mat-option *ngFor="let type of ConsentType" [value]="type">
+                            {{ type }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="fill" class="example-full-width">
+                    <mat-label>Trade License No</mat-label>
+                    <input matInput placeholder="Ex. abc123" formControlName="tradeLincenseNo">
+                </mat-form-field>
+                <mat-form-field appearance="fill" class="example-full-width">
+                    <mat-label>Company Website</mat-label>
+                    <input matInput placeholder="Ex. abc@gmail.com" formControlName="website">
+                </mat-form-field>
+                <mat-form-field appearance="fill" class="example-full-width">
+                    <mat-label>Financials Provider</mat-label>
+                    <mat-select formControlName="financialsProvider">
+                        <mat-option>Choose type</mat-option>
+                        <mat-option *ngFor="let type of ConsentType" [value]="type">
+                            {{ type }}
+                        </mat-option>
+                    </mat-select>
                 </mat-form-field>
                 <mat-form-field appearance="fill" class="example-full-width">
                     <mat-label>Company Type</mat-label>
-                    <mat-select>
-                        <mat-option value="Main">Main</mat-option>
-                        <mat-option value="Subsidiary">Subsidiary</mat-option>
-                        <mat-option>Clear</mat-option>
+                    <mat-select formControlName="type">
+                        <mat-option>Choose type</mat-option>
+                        <mat-option *ngFor="let type of CompanyType" [value]="type">
+                            {{ type }}
+                        </mat-option>
                     </mat-select>
                 </mat-form-field>
-                <mat-form-field class="example-full-width">
-                    <mat-label>Address 2</mat-label>
-                    <textarea matInput></textarea>
+                <mat-form-field appearance="fill" class="example-full-width">
+                    <mat-label>Subsidiary Company</mat-label>
+                    <input matInput placeholder="Ex. abc" formControlName="subsidiary">
                 </mat-form-field>
-                <div style="display: flex;">
-                    <div style="padding-right: 15px;">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Partners</mat-label>
+                    <textarea matInput class="textArea-full-width" formControlName="partners"></textarea>
+                </mat-form-field>
+                <mat-form-field appearance="fill" class="example-full-width">
+                    <mat-label>Company Status</mat-label>
+                    <mat-select formControlName="status" required>
+                        <mat-option>Choose type</mat-option>
+                        <mat-option *ngFor="let type of CompanyStatus" [value]="type">
+                            {{ type }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="fill" class="example-full-width">
+                    <mat-label>Financials As per Norms</mat-label>
+                    <mat-select formControlName="financialsAsPerNorm">
+                        <mat-option>Choose type</mat-option>
+                        <mat-option *ngFor="let type of ConsentType" [value]="type">
+                            {{ type }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="fill" class="example-full-width">
+                    <mat-label>Employer Type</mat-label>
+                    <mat-select formControlName="employerType">
+                        <mat-option>Choose type</mat-option>
+                        <mat-option *ngFor="let type of EmployerType" [value]="type">
+                            {{ type }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="fill" class="example-full-width">
+                    <mat-label>No. Of Employees</mat-label>
+                    <input type="number" matInput placeholder="Ex. 2" formControlName="noOfEmployee">
+                </mat-form-field>
+                <mat-form-field appearance="fill" class="example-full-width">
+                    <mat-label>Company Formation Date</mat-label>
+                    <input type="date" matInput (cdkAutofill)="firstNameAutofilled = $event.isAutofilled"
+                        formControlName="formationDate">
+                </mat-form-field>
+                <h3>Address</h3>
+                <mat-form-field appearance="fill" class="example-full-width">
+                    <mat-label>Phone</mat-label>
+                    <input type="number" matInput placeholder="Ex. 123" formControlName="phone" required>
+                </mat-form-field>
+                <mat-form-field appearance="fill" class="example-full-width">
+                    <mat-label>PO Box No</mat-label>
+                    <input type="number" matInput placeholder="Ex. 123" formControlName="poboxno" required>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Address</mat-label>
+                    <textarea matInput class="textArea-full-width" formControlName="address"></textarea>
+                </mat-form-field>
+                <mat-form-field appearance="fill" class="example-full-width">
+                    <mat-label>Category</mat-label>
+                    <mat-select formControlName="category">
+                        <mat-option>Choose type</mat-option>
+                        <mat-option *ngFor="let category of Category" [value]="category">
+                            {{ category }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <div style="display: flex;float: right; margin-right: 1%;">
+                    <div style="padding-right: 5%;">
                         <button mat-raised-button color="primary">Save</button>
                     </div>
                     <div>
