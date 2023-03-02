@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Constants } from '../app.constants';
 
 @Component({
   selector: 'app-company-details',
@@ -10,11 +11,11 @@ export class CompanyDetailsComponent implements OnInit {
   firstNameAutofilled: boolean | undefined;
   lastNameAutofilled: boolean | undefined
 
-  ConsentType: any = ['Yes', 'No', 'NA'];
-  CompanyType: any = ['Main', 'Subsidiary'];
-  CompanyStatus: any = ['NTML', 'TMC', 'OnHold'];
-  EmployerType: any = ['MNC', 'Bank', 'Govt'];
-  Category: any = ['A', 'B', 'T1', 'T2'];
+  ConsentType = Constants.ConsentType;
+  CompanyType = Constants.CompanyType;
+  Category = Constants.Category;
+  EmployerType = Constants.EmployerType;
+  CompanyStatus = Constants.CompanyStatus;
 
   constructor(public fb: FormBuilder) {
     this.firstNameAutofilled = true;
